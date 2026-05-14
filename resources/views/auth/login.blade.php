@@ -1,19 +1,21 @@
 @extends('layouts.app')
 
+@php($hideNav = true)
+
 @section('content')
 <style>
     @import url('https://fonts.bunny.net/css?family=dm-serif-display:400,400i|dm-sans:300,400,500');
 
     :root {
-        --cream: #F9F6F0;
-        --stone: #E8E2D9;
-        --sage: #6B8F71;
-        --sage-dark: #4A6B50;
-        --sage-light: #EBF2EC;
-        --text-dark: #1C1C1A;
-        --text-mid: #5A5750;
-        --text-light: #9A9590;
-        --accent: #C17B4E;
+        --cream: #F5F8FD;
+        --stone: #DCE8F5;
+        --sage: #3A8DC4;
+        --sage-dark: #1A6A9E;
+        --sage-light: #E6F1FB;
+        --text-dark: #1A1C1E;
+        --text-mid: #4A5568;
+        --text-light: #90A4BE;
+        --accent: #1D9CD8;
         --error: #C0392B;
     }
 
@@ -373,7 +375,7 @@
         <div class="panel-circle-1"></div>
         <div class="panel-circle-2"></div>
         <div class="panel-content">
-            <div class="panel-logo">Centro<span>Médico</span></div>
+            <div class="panel-logo">Vita<span>alia</span></div>
             <p class="panel-quote">Tu bienestar es nuestra prioridad.</p>
             <p class="panel-sub">Accede a tu portal para gestionar citas, resultados y el historial de atención de tu familia.</p>
         </div>
@@ -383,7 +385,7 @@
     <div class="login-panel-right">
         <div class="login-box">
 
-            <div class="mobile-logo">Centro<span>Médico</span></div>
+            <div class="mobile-logo">Vita<span>alia</span></div>
 
             <div class="login-header">
                 <p class="login-eyebrow">Portal de pacientes</p>

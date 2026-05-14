@@ -16,16 +16,16 @@
             *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
  
             :root {
-                --cream: #F9F6F0;
-                --warm-white: #FDFCFA;
-                --stone: #E8E2D9;
-                --sage: #6B8F71;
-                --sage-dark: #4A6B50;
-                --sage-light: #EBF2EC;
-                --text-dark: #1C1C1A;
-                --text-mid: #5A5750;
-                --text-light: #9A9590;
-                --accent: #C17B4E;
+                --cream: #F5F8FD;
+                --warm-white: #F8FBFF;
+                --stone: #DCE8F5;
+                --sage: #3A8DC4;
+                --sage-dark: #1A6A9E;
+                --sage-light: #E6F1FB;
+                --text-dark: #1A1C1E;
+                --text-mid: #4A5568;
+                --text-light: #90A4BE;
+                --accent: #1D9CD8;
             }
  
             html, body {
@@ -46,7 +46,7 @@
                 align-items: center;
                 justify-content: space-between;
                 padding: 1.25rem 3rem;
-                background: rgba(249, 246, 240, 0.85);
+                background: rgba(235, 244, 253, 0.85);
                 backdrop-filter: blur(12px);
                 border-bottom: 1px solid var(--stone);
             }
@@ -281,11 +281,10 @@
         </style>
     </head>
     <body>
- 
-        <!-- NAV -->
+    @if(empty($hideNav))
         <nav>
             <div class="nav-logo">Vita<span>alia</span></div>
- 
+
             @if (Route::has('login'))
                 <div class="nav-actions">
                     @auth
@@ -299,7 +298,7 @@
                 </div>
             @endif
         </nav>
- 
+    @endif
         <!-- HERO -->
         <section class="hero">
             <div class="hero-eyebrow">Atención médica de confianza</div>
