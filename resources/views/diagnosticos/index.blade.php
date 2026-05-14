@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Pacientes</title>
+    <title>Diagnósticos</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -37,6 +37,10 @@
             background-color: #004a99;
             border: none;
         }
+
+        .btn-primary:hover {
+            background-color: #003366;
+        }
     </style>
 </head>
 
@@ -44,7 +48,7 @@
 
 <header class="header-section">
     <div class="container d-flex justify-content-between">
-        <h3 class="header-title">Pacientes</h3>
+        <h3 class="header-title">Diagnósticos</h3>
         <a href="/dashboard" class="btn btn-secondary btn-sm">Volver</a>
     </div>
 </header>
@@ -52,8 +56,8 @@
 <div class="container">
 
     <div class="d-flex justify-content-between mb-3">
-        <h5>Listado de pacientes</h5>
-        <a href="/pacientes/create" class="btn btn-primary">
+        <h5>Listado de diagnósticos</h5>
+        <a href="/diagnosticos/create" class="btn btn-primary">
             <i class="fa fa-plus"></i> Nuevo
         </a>
     </div>
@@ -62,33 +66,33 @@
         <table class="table table-hover align-middle">
             <thead class="table-light">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Fecha Nac.</th>
-                    <th>Género</th>
-                    <th>Teléfono</th>
-                    <th>Dirección</th>
-                    <th>Tipo Sangre</th>
+                    <th>Descripción</th>
+                    <th>Fecha</th>
+                    <th>Paciente</th>
+                    <th>Médico</th>
+                    <th>Gravedad</th>
+                    <th>Tipo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
 
             <tbody>
-                @forelse ($pacientes as $paciente)
+                @forelse ($diagnosticos as $d)
                 <tr>
-                    <td>{{ $paciente->nombre }} {{ $paciente->apellido }}</td>
-                    <td>{{ $paciente->fecha_nacimiento }}</td>
-                    <td>{{ $paciente->genero }}</td>
-                    <td>{{ $paciente->telefono }}</td>
-                    <td>{{ $paciente->direccion }}</td>
+                    <td>{{ $d->descripcion }}</td>
+                    <td>{{ $d->fecha }}</td>
+                    <td>{{ $d->paciente->nombre }}</td>
+                    <td>{{ $d->medico->nombre }}</td>
                     <td>
-                        <span class="badge bg-danger">{{ $paciente->tipo_sangre }}</span>
+                        <span class="badge bg-warning text-dark">{{ $d->gravedad }}</span>
                     </td>
+                    <td>{{ $d->tipo_diagnostico }}</td>
                     <td>
-                        <a href="/pacientes/{{ $paciente->id }}/edit" class="btn btn-sm btn-warning">
+                        <a href="/diagnosticos/{{ $d->id }}/edit" class="btn btn-sm btn-warning">
                             <i class="fa fa-edit"></i>
                         </a>
 
-                        <form action="/pacientes/{{ $paciente->id }}" method="POST" class="d-inline">
+                        <form action="/diagnosticos/{{ $d->id }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-sm btn-danger">
@@ -99,7 +103,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="7" class="text-center">No hay pacientes</td>
+                    <td colspan="7" class="text-center">No hay diagnósticos</td>
                 </tr>
                 @endforelse
             </tbody>
