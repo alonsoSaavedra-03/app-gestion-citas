@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\GithubLoginController;
+use App\Http\Controllers\PacienteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,6 +25,10 @@ Route::get('/login/google/callback', [LoginController::class, 'handleGoogleCallb
 
 Route::get('/login/github', [GithubLoginController::class, 'redirectToGithub']);
 Route::get('/login/github/callback', [GithubLoginController::class, 'handleGithubCallback']);
+
+Route::get('/pacientes', [PacienteController::class, 'index']);
+Route::get('/pacientes/create', [PacienteController::class, 'create']);
+Route::post('/pacientes', [PacienteController::class, 'store']);
 
 
 require __DIR__.'/auth.php';
