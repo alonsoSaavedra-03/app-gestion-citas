@@ -1,18 +1,20 @@
 @extends('layouts.app')
 
+@php($hideNav = true)
+
 @section('content')
 <style>
     @import url('https://fonts.bunny.net/css?family=dm-serif-display:400,400i|dm-sans:300,400,500');
 
     :root {
-        --cream: #F9F6F0;
-        --stone: #E8E2D9;
-        --sage: #6B8F71;
-        --sage-dark: #4A6B50;
-        --sage-light: #EBF2EC;
-        --text-dark: #1C1C1A;
-        --text-mid: #5A5750;
-        --text-light: #9A9590;
+        --cream: #F5F8FD;
+        --stone: #DCE8F5;
+        --sage: #3A8DC4;
+        --sage-dark: #1A6A9E;
+        --sage-light: #E6F1FB;
+        --text-dark: #1A1C1E;
+        --text-mid: #4A5568;
+        --text-light: #90A4BE;
         --error: #C0392B;
     }
 
